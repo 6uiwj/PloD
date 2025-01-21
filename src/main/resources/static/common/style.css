@@ -48,3 +48,28 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+
+/* 공통 요소 설정 */
+:root {
+    --main-color : #5CDDBC;
+}
+
+
+/* 사이트 기본 설정 */
+a {
+    text-decoration: none;
+}
+
+a:visited {
+    color : black;
+}
+
+.main_nav-a:hover {
+    color : #FF7D42;
+}
+
+.main_nav-a:hover {
+    color : #FF7D42;
+}
+
+
