@@ -60,11 +60,16 @@ a {
     text-decoration: none;
 }
 
-.main_div_a-jobBoard:visited {
-    color : #FF7D42;
-}
-
 a:visited {
     color : black;
 }
+
+.main_nav-a:hover {
+    color : #FF7D42;
+}
+
+.main_nav-a:hover {
+    color : #FF7D42;
+}
+
 
