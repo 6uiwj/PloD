@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("/qna")
-public class qnaController {
+public class QnaController {
     @GetMapping
     public String qnaMain(){
         return "/qna/qna_main";
