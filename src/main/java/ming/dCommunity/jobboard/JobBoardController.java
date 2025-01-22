@@ -1,15 +1,14 @@
-package ming.dCommunity.community;
+package ming.dCommunity.jobboard;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/community")
-public class communityController {
-
+@RequestMapping("/jobBoard")
+public class JobBoardController {
     @GetMapping
-    public String communityMain() {
-        return "/community/community_main";
+    public String jobBoardMain() {
+        return "/jobBoard/jobBoard_main";
     }
 }

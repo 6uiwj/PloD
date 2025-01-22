@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("/notice")
-public class noticeController {
+public class NoticeController {
     @GetMapping
     public String noticeMain() {
         return "/notice/notice_main";
