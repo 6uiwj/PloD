@@ -1,4 +1,4 @@
-package ming.dCommunity.jobboard;
+package ming.dCommunity.jobBoard;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

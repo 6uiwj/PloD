@@ -1,12 +1,17 @@
 package ming.dCommunity.community;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.RequiredArgsConstructor;
+import ming.dCommunity.community.board.entity.Board;
+
+import java.util.List;
 
 @Entity
 @RequiredArgsConstructor
 public class Community {
-    @Id
+    @Id @GeneratedValue
     private Integer cId;
+
+    @OneToMany(mappedBy = "community", cascade = CascadeType.REMOVE)
+    private List<Board> commBoard;
 }
