@@ -12,18 +12,18 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer uId;
+    private Integer uId; //id
 
     @Column(nullable = false, unique = true)
-    private String userId;
+    private String userId; //유저ID
 
-    private String username;
+    private String username; //유저 실명
 
     @Column(nullable = false)
     private String password;
 
     @Column(nullable = false, unique = true)
-    private String nickname;
+    private String nickname; //유저 별명
 
     private String email;
 
