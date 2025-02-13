@@ -17,22 +17,22 @@ public class QnaQuestion {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer qId;
+    private Integer qId; //id
 
     @Column(nullable = false)
-    private String qSubject;
+    private String qSubject; //1:1문의 질문 제목
 
     @Column(nullable = false, columnDefinition = "TEXT")
-    private String qContent;
+    private String qContent; //1:1문의 질문 내용
 
-    private LocalDateTime qCreateDate;
+    private LocalDateTime qCreateDate; //작성일시
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "uId", nullable = false)
-    private User qAuthor;
+    private User qAuthor; //1:1문의 질문 작성자
 
 
-    private QnaQuestion(String qSubject, String qContent, User qAuthor) {
+    private QnaQuestion(String fSubject, String fContent, User fAuthor) {
         this.qSubject = qSubject;
         this.qContent = qContent;
         this.qAuthor = qAuthor;

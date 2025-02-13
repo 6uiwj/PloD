@@ -5,6 +5,7 @@ import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import ming.dCommunity.community.comment.entity.Comment;
+import ming.dCommunity.community.entity.Community;
 import ming.dCommunity.user.entity.User;
 
 import java.time.LocalDateTime;
@@ -51,6 +52,10 @@ public class Board {
 
 
     private Set<User> cbVoter; //추천인
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "cId", nullable = false)
+    private Community community;
 
     //하나의 게시글 여러개의 댓글
     //mappedBy = "board" : Comment엔티티에서 board 필드가 연관관계의 주인

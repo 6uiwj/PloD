@@ -1,14 +1,14 @@
-package ming.dCommunity.qna;
+package ming.dCommunity.notice.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/qna")
-public class QnaController {
+@RequestMapping("/notice")
+public class NoticeController {
     @GetMapping
-    public String qnaMain(){
-        return "/qna/qna_main";
+    public String noticeMain() {
+        return "/notice/notice_main";
     }
 }
