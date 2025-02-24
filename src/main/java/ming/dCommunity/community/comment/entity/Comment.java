@@ -3,7 +3,7 @@ package ming.dCommunity.community.comment.entity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
-import ming.dCommunity.community.board.entity.Board;
+import ming.dCommunity.community.board.entity.Post;
 import ming.dCommunity.user.entity.User;
 
 import java.time.LocalDateTime;
@@ -26,8 +26,8 @@ public class Comment {
     private LocalDateTime coCreateDate; //댓글 작성일시
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "cbId", nullable = false)
-    private Board board; //댓글에 주인이 되는 게시판
+    @JoinColumn(name = "pId", nullable = false)
+    private Post post; //댓글에 주인이 되는 게시판
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="uId", nullable = false)

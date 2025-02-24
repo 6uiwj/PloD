@@ -4,14 +4,9 @@ import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import ming.dCommunity.community.comment.entity.Comment;
 import ming.dCommunity.community.entity.Community;
-import ming.dCommunity.user.entity.User;
 
-import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 /**
  * @NoArgsConstructor(기본생성자)를 사욯하는 이유
@@ -35,33 +30,15 @@ public class Board {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer cbId; //게시판 id, 고유번호 부여
 
-    @Column(nullable = false)
-    private String cbSubject; //게시판 제목(내용 입력 필수)
-
-    @Column(nullable = false, columnDefinition = "TEXT") //긴 텍스트데이터 저장
-    private String cbContent; //게시판 내용(내용 입력 필수)
-
-    private LocalDateTime cbCreateDate; //작성일시
-
-    //여러 개의 게시글, 하나의 작성자
-    @ManyToOne(fetch = FetchType.LAZY) //지연 로딩
-    @JoinColumn(name = "uId", nullable = false) //외래키 컬럼 이름 uId
-    private User cbAuthor; //작성자(User Entity에서 가져옴)
-
-    private LocalDateTime cbModifyDate; //수정일시
-
-    @ManyToMany
-    private Set<User> cbVoter; //추천인
+    private String commBoardName; //게시판이름
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "cId", nullable = false)
+    @JoinColumn(name = "community_Id", nullable = false)
     private Community community;
 
-    //하나의 게시글 여러개의 댓글
-    //mappedBy = "board" : Comment엔티티에서 board 필드가 연관관계의 주인
-    //orphanRemoval = true : 고아객체 제거
+    //관계만 정의, 실제 테이블엔 생성X
     @OneToMany(mappedBy = "board", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Comment> comments = new ArrayList<>();
+    private List<Post> posts;
 
 
 
