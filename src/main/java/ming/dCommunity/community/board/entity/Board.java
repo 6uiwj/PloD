@@ -50,7 +50,7 @@ public class Board {
 
     private LocalDateTime cbModifyDate; //수정일시
 
-
+    @ManyToMany
     private Set<User> cbVoter; //추천인
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -63,38 +63,6 @@ public class Board {
     @OneToMany(mappedBy = "board", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Comment> comments = new ArrayList<>();
 
-    //Board 생성자 (Board객체 초기화) -> 객체 생성이 외부에서 이루어지지 않도록 통제
-    //아래의 정보들은 생성 후 상태가 변경되지 않음
-    private Board(String cbSubject, String cbContent, User cbAuthor) {
-        this.cbSubject = cbSubject;
-        this.cbContent = cbContent;
-        this.cbAuthor = cbAuthor;
-        this.cbCreateDate = LocalDateTime.now();
-    }
 
-    /**
-     * 정적 팩토리 메서드 -> Board 객체 생성
-     * 객체 생성 로직 캡슐화
-     *  Board 객체를 생성할 때 추가적인 로직이나 검증을 할 수 있으며,
-     *  외부에서 Board 객체를 쉽게 생성 가능
-     *
-     *  DDD에서 엔티티의 객체 생성은 도메인 로직과 연결될 수 있기 때문에,
-     *  정적 팩토리 메서드를 사용하여 객체 생성 과정을 도메인 서비스나 팩토리에 위임
-     *
-     *  객체가 생성되는 방식에 대한 제어권을 도메인 클래스 자체가 갖게 하여 객체의 일관성을 보장
-     * @param cbSubject
-     * @param cbContent
-     * @param cbAuthor
-     * @return
-     */
-    //이 메서드를 외부에서 호출하여 Board 생성자를 호출해 Board객체를 생성
-    public static Board create(String cbSubject, String cbContent, User cbAuthor) {
-        return new Board(cbSubject, cbContent, cbAuthor);
-    }
-
-    //글 작성자로 입력할 닉네임 가져오기
-    public String getAuthorNickname() {
-        return cbAuthor.getNickname();
-    }
 
 }

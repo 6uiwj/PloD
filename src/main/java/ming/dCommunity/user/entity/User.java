@@ -1,13 +1,10 @@
 package ming.dCommunity.user.entity;
 
 import jakarta.persistence.*;
-import lombok.AccessLevel;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 
 @Entity
 @Getter
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class User {
 
     @Id
@@ -27,14 +24,5 @@ public class User {
 
     private String email;
 
-    private User(String nickname, String email, String password) {
-        this.nickname = nickname;
-        this.email = email;
-        this.password = password;
-    }
-
-    public static User create(String nickname, String email, String password) {
-        return new User(nickname, email, password);
-    }
 
 }

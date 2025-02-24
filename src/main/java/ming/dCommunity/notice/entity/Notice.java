@@ -21,26 +21,4 @@ public class Notice {
 
     private LocalDateTime nCreateDate;
 
-    /**
-     * Notice 생성자 (Notice 객체 초기화) : 객체 생성이 외부에서 이루어지지 않도록 통제
-     * 아래의 정보들은 생성 후 상태가 변경되지 않음
-     * @param nSubject
-     * @param nContent
-     */
-    private Notice(String nSubject, String nContent) {
-        this.nSubject = nSubject;
-        this.nContent = nContent;
-        this.nCreateDate = LocalDateTime.now();
-    }
-
-    /**
-     * 이 메서드를 외부에서 호출하여 Notice 생성자를 호출해 Notice 객체를 생성
-     * @param nSubject
-     * @param nContent
-     * @return
-     */
-    public static Notice create(String nSubject, String nContent) {
-        return new Notice(nSubject, nContent);
-    }
-
-}
+  }

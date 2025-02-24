@@ -31,21 +31,4 @@ public class QnaQuestion {
     @JoinColumn(name = "uId", nullable = false)
     private User qAuthor; //1:1문의 질문 작성자
 
-
-    private QnaQuestion(String fSubject, String fContent, User fAuthor) {
-        this.qSubject = qSubject;
-        this.qContent = qContent;
-        this.qAuthor = qAuthor;
-        this.qCreateDate = LocalDateTime.now();
-    }
-
-    private static QnaQuestion create(String qSubject, String qContent, User qAuthor) {
-        return new QnaQuestion(qSubject, qContent, qAuthor);
-    }
-
-
-    //글 작성자로 입력할 닉네임 가져오기
-    public String getAuthorNickname() {
-        return qAuthor.getNickname();
-    }
 }
