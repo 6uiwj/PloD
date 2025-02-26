@@ -1,9 +1,9 @@
 package ming.dCommunity.community.board.entity;
 
 import jakarta.persistence.*;
-import lombok.AccessLevel;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
+import lombok.Setter;
 import ming.dCommunity.community.entity.Community;
 
 import java.util.List;
@@ -23,7 +23,8 @@ import java.util.List;
  */
 @Entity
 @Getter
-@NoArgsConstructor(access =  AccessLevel.PROTECTED)
+@RequiredArgsConstructor
+@Setter
 public class Board {
 
     @Id
@@ -33,7 +34,7 @@ public class Board {
     private String commBoardName; //게시판이름
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "community_Id", nullable = false)
+    @JoinColumn(name = "community_Id")
     private Community community;
 
     //관계만 정의, 실제 테이블엔 생성X
