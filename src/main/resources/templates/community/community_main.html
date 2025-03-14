@@ -6,34 +6,60 @@
     <title>커뮤니티</title>
 </head>
 <body>
-<div class="community_main_layout">
-<div>
-    <h3>커뮤니티</h3>
-       <ul>
-           <li>
-        <a th:href="@{/community/cBoard1}">커뮤니티 게시판1</a>
-           </li>
-           <li>
-           <a th:href="@{/community/cBoard2}">커뮤니티 게시판2</a>
-           </li>
-           <li>
-           <a th:href="@{/community/cBoard3}">커뮤니티 게시판3</a>
-           </li>
-           <li>
-           <a th:href="@{/community/cBoard4}">커뮤니티 게시판4</a>
-           </li>
-       </ul>
+<div class="container">
+<div class="community_menu">
+    <h3>**커뮤니티 게시판 목록**</h3>
+    <ul>
+        <li th:each="boardName :${boardNameList}">
+        <a th:text="${boardName}" th:href="@{'/community/' + ${#strings.toLowerCase(boardName)}}"></a>
+        </li>
+    </ul>
+
 </div>
 
-<div>
-    커뮤니티 게시판1
-    총 n개의 게시글이 존재합니다.
-    <table>
-        <ul>
-            <li>작성자 별명 | 작성 날짜 </li>
-            <li> 게시글 제목</li>
-        </ul>
-    </table>
+<div class="board_list">
+    <div class="community-title">
+    커뮤니티
+    </div>
+    <div class="main-grid">
+        <div class="board-section">
+            <a class="board-title" th:href="@{/community/java}">JAVA 커뮤니티</a>
+            <div class="board-posts">
+                <a th:href="@{/community/java}">커뮤니티 게시글1</a>
+                <a th:href="@{/community/}">커뮤니티 게시글2</a>
+                <a th:href="@{/community}">커뮤니티 게시글3</a>
+                <a th:href="@{/community}">커뮤니티 게시글4</a>
+            </div>
+        </div>
+
+        <div class="board-section">
+            <a class="board-title" th:href="@{/community/c}">C 커뮤니티</a>
+            <div class="board-posts">
+                <a th:href="@{/qna}">커뮤니티 게시글1</a>
+                <a th:href="@{/qna}">커뮤니티 게시글2</a>
+                <a th:href="@{/qna}">커뮤니티 게시글3</a>
+                <a th:href="@{/qna}">커뮤니티 게시글4</a>
+            </div>
+        </div>
+        <div class="board-section">
+            <a class="board-title" th:href="@{/community/python}">Python 커뮤니티</a>
+            <div class="board-posts">
+                <a th:href="@{/jobBoard}">커뮤니티 게시글1</a>
+                <a th:href="@{/jobBoard}">커뮤니티 게시글2</a>
+                <a th:href="@{/jobBoard}">커뮤니티 게시글3</a>
+                <a th:href="@{/jobBoard}">커뮤니티 게시글4</a>
+            </div>
+        </div>
+        <div class="board-section">
+            <a class="board-title" th:href="@{/notice}">JS 커뮤니티</a>
+            <div class="board-posts">
+                <a th:href="@{/notice}">커뮤니티 게시글1</a>
+                <a th:href="@{/notice}">커뮤니티 게시글2</a>
+                <a th:href="@{/notice}">커뮤니티 게시글3</a>
+                <a th:href="@{/notice}">커뮤니티 게시글4</a>
+            </div>
+        </div>
+    </div>
 </div>
 </div>
 </body>

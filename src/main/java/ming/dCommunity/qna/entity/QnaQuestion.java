@@ -5,7 +5,7 @@ import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import ming.dCommunity.user.entity.User;
+import ming.dCommunity.user.entity.UserInfo;
 
 import java.time.LocalDateTime;
 
@@ -29,6 +29,6 @@ public class QnaQuestion {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "uId", nullable = false)
-    private User qAuthor; //1:1문의 질문 작성자
+    private UserInfo qAuthor; //1:1문의 질문 작성자
 
 }

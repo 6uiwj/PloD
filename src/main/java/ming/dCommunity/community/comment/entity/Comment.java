@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import ming.dCommunity.community.board.entity.Post;
-import ming.dCommunity.user.entity.User;
+import ming.dCommunity.user.entity.UserInfo;
 
 import java.time.LocalDateTime;
 import java.util.Set;
@@ -31,10 +31,10 @@ public class Comment {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="uId", nullable = false)
-    private User coAuthor; //댓글 작성자
+    private UserInfo coAuthor; //댓글 작성자
 
     @ManyToMany
-    private Set<User> coVoter; //댓글 추천인
+    private Set<UserInfo> coVoter; //댓글 추천인
 
 
 
