@@ -49,6 +49,20 @@
     text-align: center;
 }
 
+#qna-board-title {
+    background-color: #ffbc4f;
+}
+
+#jobBoard-board-title {
+    background-color: #4a95ff;
+}
+
+
+#notice-board-title {
+    background-color: #ff8c9d;
+}
+
+
 /* 게시글 목록 스타일링 */
 .board-posts {
     display: flex;

@@ -3,7 +3,7 @@ package ming.dCommunity.community.board.entity;
 import jakarta.persistence.*;
 import lombok.RequiredArgsConstructor;
 import ming.dCommunity.community.comment.entity.Comment;
-import ming.dCommunity.user.entity.User;
+import ming.dCommunity.user.entity.UserInfo;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -28,12 +28,12 @@ public class Post {
     //여러 개의 게시글, 하나의 작성자
     @ManyToOne(fetch = FetchType.LAZY) //지연 로딩
     @JoinColumn(name = "uId", nullable = false) //외래키 컬럼 이름 uId
-    private User pAuthor; //작성자(User Entity에서 가져옴)
+    private UserInfo pAuthor; //작성자(UserInfo Entity에서 가져옴)
 
     private LocalDateTime pModifyDate; //수정일시
 
     @ManyToMany
-    private Set<User> pVoter; //추천인
+    private Set<UserInfo> pVoter; //추천인
 
 
     //하나의 게시글 여러개의 댓글

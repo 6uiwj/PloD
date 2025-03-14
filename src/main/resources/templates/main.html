@@ -10,17 +10,17 @@
 <div class="ad-banner">광고배너</div>
     <div class="main-grid">
         <div class="board-section">
-            <a class="board-title" th:href="@{/community}">커뮤니티</a>
+            <a class="board-title" id="community-board-title" th:href="@{/community}">커뮤니티</a>
                 <div class="board-posts">
-                    <a th:href="@{/community}">커뮤니티 게시글1</a>
-                    <a th:href="@{/community}">커뮤니티 게시글2</a>
+                    <a th:href="@{/community/java}">커뮤니티 게시글1</a>
+                    <a th:href="@{/community/}">커뮤니티 게시글2</a>
                     <a th:href="@{/community}">커뮤니티 게시글3</a>
                     <a th:href="@{/community}">커뮤니티 게시글4</a>
                 </div>
         </div>
 
         <div class="board-section">
-            <a class="board-title" th:href="@{/qna}">Q&A</a>
+            <a class="board-title" id="qna-board-title" th:href="@{/qna}">Q&A</a>
                 <div class="board-posts">
                     <a th:href="@{/qna}">Q&A 게시글1</a>
                     <a th:href="@{/qna}">Q&A 게시글2</a>
@@ -29,7 +29,7 @@
                 </div>
         </div>
         <div class="board-section">
-            <a class="board-title" th:href="@{/jobBoard}">구인구직</a>
+            <a class="board-title" id="jobBoard-board-title" th:href="@{/jobBoard}">구인구직</a>
                 <div class="board-posts">
                     <a th:href="@{/jobBoard}">구인구직 게시글1</a>
                     <a th:href="@{/jobBoard}">구인구직 게시글2</a>
@@ -38,7 +38,7 @@
                 </div>
         </div>
         <div class="board-section">
-            <a class="board-title" th:href="@{/notice}">공지사항</a>
+            <a class="board-title" id="notice-board-title" th:href="@{/notice}">공지사항</a>
               <div class="board-posts">
                 <a th:href="@{/notice}">공지사항 게시글1</a>
                 <a th:href="@{/notice}">공지사항 게시글2</a>
