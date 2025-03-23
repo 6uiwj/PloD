@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import ming.dCommunity.community.board.dto.PostDto;
 import ming.dCommunity.community.comment.entity.Comment;
 import ming.dCommunity.user.entity.UserInfo;
 
@@ -51,5 +52,16 @@ public class Post {
     @ManyToOne
     @JoinColumn(name="board_id", nullable = false)
     private Board board;
+
+    public PostDto toPostDto() {
+        String nickname = pAuthor != null ? pAuthor.getNickname() : null;
+        return new PostDto(
+                this.getPId(),
+                this.getPSubject(),
+                this.getPContent(),
+                this.getPCreateDate(),
+                nickname // 작성자 닉네임만 전달
+        );
+    }
 
 }

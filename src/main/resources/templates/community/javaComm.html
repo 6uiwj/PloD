@@ -7,8 +7,24 @@
     </head>
     <body>
     JAVA 커뮤니티당
+<!--    [[${JAVAPostList}]]-->
     <th:block th:replace="~{community/boardSkin :: boardSkinFragment}"/>
-
+    <table>
+        <thead>
+            <tr>
+                <th>제목</th>
+                <th>작성일</th>
+                <th>작성자</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each = "post : ${JAVAPostList}">
+                <td th:text="${post.pSubject}"></td>
+                <td th:text="${post.pCreateDate}"></td>
+                <td th:text="${post.pAuthorNickname}"></td>
+            </tr>
+        </tbody>
+    </table>
     </body>
 </div>
 </html>
