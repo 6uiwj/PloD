@@ -51,7 +51,7 @@ public class PostService {
                         .toList();
                 System.out.println("닉네임아 잘있니..? "+ postDtoList.get(0).getPAuthorNickname());
                 model.addAttribute(postAttributeName, postDtoList);
-
+// 게시글이 없을 경우 처리 (TODO)
             } else throw new NoSuchElementException();
         } else throw new NoSuchElementException();
     }
