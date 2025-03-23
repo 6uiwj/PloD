@@ -1,10 +1,13 @@
 package ming.dCommunity.user.entity;
 
 import jakarta.persistence.*;
-import lombok.Getter;
+import lombok.*;
 
 @Entity
 @Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class UserInfo {
 
     @Id
@@ -22,6 +25,7 @@ public class UserInfo {
     @Column(nullable = false, unique = true)
     private String nickname; //유저 별명
 
+    @Column(nullable = false, unique = true)
     private String email;
 
 

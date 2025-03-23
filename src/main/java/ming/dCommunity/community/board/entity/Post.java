@@ -1,7 +1,10 @@
 package ming.dCommunity.community.board.entity;
 
 import jakarta.persistence.*;
-import lombok.RequiredArgsConstructor;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import ming.dCommunity.community.comment.entity.Comment;
 import ming.dCommunity.user.entity.UserInfo;
 
@@ -11,7 +14,10 @@ import java.util.List;
 import java.util.Set;
 
 @Entity
-@RequiredArgsConstructor
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
 public class Post {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
