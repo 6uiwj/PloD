@@ -14,6 +14,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
+/**
+ * 게시글 엔티티
+ */
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
@@ -53,6 +56,11 @@ public class Post {
     @JoinColumn(name="board_id", nullable = false)
     private Board board;
 
+    /**
+     * Post -> PostDto 객체로 변환(가공)
+     * UserInfo타입인 pAuthor을 UserInfo의 Nickname으로 가공
+     * @return
+     */
     public PostDto toPostDto() {
         String nickname = pAuthor != null ? pAuthor.getNickname() : null;
         return new PostDto(
@@ -60,7 +68,7 @@ public class Post {
                 this.getPSubject(),
                 this.getPContent(),
                 this.getPCreateDate(),
-                nickname // 작성자 닉네임만 전달
+                nickname // 작성자 닉네임만 전달 (pAuthorNickname자리에 nickname(UserInfo의 Nickname)대입)
         );
     }
 
