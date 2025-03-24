@@ -56,7 +56,7 @@ public class postServiceTest {
             //ex) 자바커뮤니티의 게시물이면 -> post(게시글)들에 저장된 Board(게시판)정보를 이용해서 board = java 인 게시글들 검색
             Optional<List<Post>> postListTemp = this.postRepository.findByBoard(board);
 
-            if (postListTemp.isPresent()) {
+            if (postListTemp.isPresent()) { //게시글이 있을 때
                 System.out.println("List담겼나?");
 
                 List<Post> postList = postListTemp.get();
@@ -64,7 +64,11 @@ public class postServiceTest {
                 for (Post item : postList) {
                     System.out.println(item);  // list의 각 항목을 출력
                 }
-            } else throw new NoSuchElementException();
+            } else {
+                //게시글이 존재하지 않습니다.
+                //throw new NoSuchElementException();
+            }
+
         } else throw new NoSuchElementException();
     }
 }

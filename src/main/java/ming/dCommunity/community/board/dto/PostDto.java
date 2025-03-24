@@ -5,7 +5,7 @@ import lombok.Setter;
 
 import java.time.LocalDateTime;
 
-//userInfo -> nickname
+//userInfo -> nickname 추출 (Post Entity의 UserInfo를 UserInfo의Nickname으로 가공)
 @Getter
 @Setter
 public class PostDto {
@@ -15,8 +15,15 @@ public class PostDto {
     private LocalDateTime pCreateDate;  // 작성일시
     private String pAuthorNickname;  // 작성자 닉네임만
 
-    // 생성자, getter, setter 추가
 
+    /**
+     * Constructor
+     * @param pId
+     * @param pSubject
+     * @param pContent
+     * @param pCreateDate
+     * @param pAuthorNickname
+     */
     public PostDto(Integer pId, String pSubject, String pContent, LocalDateTime pCreateDate, String pAuthorNickname) {
         this.pId = pId;
         this.pSubject = pSubject;

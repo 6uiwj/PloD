@@ -36,6 +36,7 @@ public class PostService {
 
         if(boardNameTemp.isPresent()) {
             Board board = boardNameTemp.get();
+            //model에 저장할 이름 : 게시판이름+PostList (ex: JAVAPostList)
             String postAttributeName = board.getCommBoardName() + "PostList";
 
             //게시판별 게시글 조회 위해 게시판을 키워드로 검색해서 게시글을 목록 조회할 것임
@@ -45,14 +46,18 @@ public class PostService {
             if (postListTemp.isPresent()) {
                 List<Post> postList = postListTemp.get();
 
-                // Post 리스트를 PostDTO 리스트로 변환
+                //조회한 Post 리스트를 PostDTO 리스트로 변환
                 List<PostDto> postDtoList = postList.stream()
                         .map(Post::toPostDto) // Post -> PostDTO 변환
                         .toList();
                 System.out.println("닉네임아 잘있니..? "+ postDtoList.get(0).getPAuthorNickname());
                 model.addAttribute(postAttributeName, postDtoList);
 // 게시글이 없을 경우 처리 (TODO)
-            } else throw new NoSuchElementException();
+            } else {
+                //model.addAttribute("message", "게시글이 존재하지 않습니다.");
+            }
+
+
         } else throw new NoSuchElementException();
     }
 
