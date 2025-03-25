@@ -1,14 +1,11 @@
-<!DOCTYPE html>
-<html layout:decorate="~{layout}">
-<div layout:fragment="content">
-    <head>
-        <meta charset="UTF-8">
-        <title>JAVA 커뮤니티</title>
-    </head>
+<html layout:decorate="~{/community/boardSkin}">
+
     <body>
+    <div layout:fragment="boardSkinFragment">
+        <div>
     JAVA 커뮤니티당
+        </div>
 <!--    [[${JAVAPostList}]]-->
-    <th:block th:replace="~{community/boardSkin :: boardSkinFragment}"/>
     <table>
         <thead>
             <tr>
@@ -18,13 +15,16 @@
             </tr>
         </thead>
         <tbody>
-            <tr th:each = "post : ${JAVAPostList}">
+        <tr th:if="${#lists.isEmpty(JAVAPostList)}">
+            <td colspan="3" th:text="#{NotFoundPost}"></td>
+        </tr>
+            <tr th:each = "post : ${JAVAPostList}" th:unless="${#lists.isEmpty(JAVAPostList)}">
                 <td th:text="${post.pSubject}"></td>
                 <td th:text="${post.pCreateDate}"></td>
                 <td th:text="${post.pAuthorNickname}"></td>
             </tr>
         </tbody>
     </table>
+    </div>
     </body>
-</div>
 </html>

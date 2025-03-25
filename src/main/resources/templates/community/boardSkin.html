@@ -1,12 +1,25 @@
-<div th:fragment = "boardSkinFragment">
-<div class="board_postList">
-    커뮤니티 게시판1
-    총 n개의 게시글이 존재합니다.
-    <table>
-        <ul>
-            <li>작성자 별명 | 작성 날짜 </li>
-            <li> 게시글 제목</li>
-        </ul>
-    </table>
-</div>
-</div>
+<html layout:decorate="~{layout}">
+<head>
+    <meta charset="UTF-8">
+    <title>커뮤니티</title>
+</head>
+    <body>
+        <div layout:fragment="content">
+                <div class="container">
+                    <div class="community_menu">
+                        <h3><a th:href="@{/community}">**커뮤니티**</a></h3>
+                        <ul>
+                            <li th:each="boardName :${boardNameList}">
+                                <a th:text="${boardName}" th:href="@{'/community/' + ${#strings.toLowerCase(boardName)}}"></a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="board_postList">
+                        <div layout:fragment = "boardSkinFragment">
+                            기본내용
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </body>
+</html>

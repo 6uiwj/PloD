@@ -1,15 +1,29 @@
-<!DOCTYPE html>
-<html layout:decorate="~{layout}">
-    <head>
-        <meta charset="UTF-8">
-        <title>C언어 커뮤니티</title>
-    </head>
-    <body>
-    <div layout:fragment="content">
+<html layout:decorate="~{/community/boardSkin}">
+
+<body>
+<div layout:fragment="boardSkinFragment">
 <div>
     C언어 커뮤니티당
 </div>
-    <th:block th:replace="~{community/boardSkin :: boardSkinFragment}"/>
+        <table>
+            <thead>
+            <tr>
+                <th>제목</th>
+                <th>작성일</th>
+                <th>작성자</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:if="${#lists.isEmpty(CPostList)}">
+                <td colspan="3" th:text="#{NotFoundPost}"></td>
+            </tr>
+            <tr th:each = "post : ${CPostList}" th:unless="${#lists.isEmpty(CPostList)}">
+                <td th:text="${post.pSubject}"></td>
+                <td th:text="${post.pCreateDate}"></td>
+                <td th:text="${post.pAuthorNickname}"></td>
+            </tr>
+            </tbody>
+        </table>
     </div>
     </body>
 </html>
