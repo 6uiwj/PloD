@@ -20,3 +20,104 @@ h4 {
 margin: 30px;
 font-size : 3em;
 }
+
+
+/* 커뮤니티 좌측 메뉴 */
+.community_menu {
+    width: 200px; /* 메뉴 너비 */
+    background-color: #FFFFFF; /* 배경색 (연한 초록) */
+    padding: 15px;
+    border-radius: 10px; /* 모서리 둥글게 */
+}
+
+.community_menu h3 {
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    color: white;
+    background-color: #3ECFAF; /* 제목 배경 */
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.community_menu ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.community_menu li {
+    margin: 10px 0;
+}
+
+.community_menu a {
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    color: black;
+    display: block;
+    padding: 8px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.community_menu a:hover {
+    background-color: #3ECFAF; /* 호버 시 배경색 */
+    color: white;
+}
+
+/*  게시판 테이블 css 임시 */
+/* 테이블 전체 스타일 */
+table {
+    width: 80%;
+    border-collapse: collapse;
+    margin: 20px auto; /* 가운데 정렬 */
+    font-size: 16px;
+    text-align: left;
+    background-color: #ffffff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* 테이블 헤더 스타일 */
+thead {
+    background-color: #3ECFAF; /* 연한 초록 */
+    color: white;
+    font-weight: bold;
+}
+
+/* 테이블 헤더 셀 스타일 */
+thead th {
+    padding: 12px;
+    text-align: center;
+}
+
+/* 테이블 본문 스타일 */
+tbody tr {
+    border-bottom: 1px solid #ddd; /* 행 구분선 */
+}
+
+/* 테이블 본문 셀 스타일 */
+tbody td {
+    padding: 10px;
+        text-align: center; /* 글자 가운데 정렬 */
+
+}
+
+/* 테이블 홀수 행 배경색 변경 */
+tbody tr:nth-child(odd) {
+    background-color: #F8F8F8;
+}
+
+/* 마우스 호버 효과 */
+tbody tr:hover {
+    background-color: #3ECFAF;
+}
+
+/* 게시글이 없을 때 */
+td[colspan] {
+    text-align: center;
+    font-weight: bold;
+    color: #777;
+}
+
