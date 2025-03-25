@@ -4,11 +4,14 @@ import ming.dCommunity.community.board.entity.Board;
 import ming.dCommunity.community.board.entity.Post;
 import ming.dCommunity.community.board.repository.BoardRepository;
 import ming.dCommunity.community.board.repository.PostRepository;
+import ming.dCommunity.community.board.service.PostService;
+import ming.dCommunity.user.entity.UserInfo;
 import ming.dCommunity.user.repository.UserRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Optional;
@@ -22,6 +25,9 @@ public class postServiceTest {
 
     @Autowired
     BoardRepository boardRepository;
+
+    @Autowired
+    PostService postService;
 
     @Test
     void javaPost() {
@@ -70,5 +76,23 @@ public class postServiceTest {
             }
 
         } else throw new NoSuchElementException();
+    }
+
+    @Test
+    void BulkCPostTest() {
+        Board board = boardRepository.findById(6).get();
+        UserInfo userInfo = userRepository.findById(1).get();
+        for(int i = 0; i<30; i++) {
+            String subject = String.format("C게시글 제목 %03d",i);
+            String content = String.format("C게시글 내용 %03d",i);
+
+            Post post = new Post();
+            post.setPSubject(subject);
+            post.setPContent(content);
+            post.setBoard(board);
+            post.setPCreateDate(LocalDateTime.now());
+            post.setPAuthor(userInfo);
+            this.postRepository.save(post);
+        }
     }
 }

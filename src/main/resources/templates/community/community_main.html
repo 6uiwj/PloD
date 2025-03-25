@@ -1,23 +1,8 @@
-<!DOCTYPE html>
-<html layout:decorate="~{layout}">
-<div layout:fragment="content">
-<head>
-    <meta charset="UTF-8">
-    <title>커뮤니티</title>
-</head>
+
+<html layout:decorate="~{/community/boardSkin}">
+
 <body>
-<div class="container">
-<div class="community_menu">
-    <h3>**커뮤니티 게시판 목록**</h3>
-    <ul>
-        <li th:each="boardName :${boardNameList}">
-        <a th:text="${boardName}" th:href="@{'/community/' + ${#strings.toLowerCase(boardName)}}"></a>
-        </li>
-    </ul>
-
-</div>
-
-<div class="board_list">
+<div layout:fragment="boardSkinFragment">
     <div class="community-title">
     커뮤니티
     </div>
@@ -61,7 +46,6 @@
         </div>
     </div>
 </div>
-</div>
 </body>
-</div>
+
 </html>
