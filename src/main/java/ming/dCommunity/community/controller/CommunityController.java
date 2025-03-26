@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.List;
 import java.util.Locale;
 
 @RequiredArgsConstructor
@@ -28,8 +29,27 @@ public class CommunityController {
         model.addAttribute("boardNameList", boardService.getBoardNameList());
     }
 
+    /**
+     * 게시판별 최신 게시글 가져오기
+     * @param model
+     */
+    public void getLatestPostList(Model model) {
+        List<Integer> BoardIdList = boardService.getAllBoardType(); //게시판 종류(ID)
+        for(int i =0; i<BoardIdList.size(); i++) {
+            Integer commBoardId = BoardIdList.get(i);
+            String commBoardName = this.boardService.getBoardName(commBoardId);
+            String modelName = commBoardName+"LatestPostList";
+            System.out.println("이름이 뭐에요~?" + modelName);
+            //String boardName = this.
+            model.addAttribute(modelName, this.boardService.getLatestPost(commBoardId));
+
+        }
+
+    }
+
     @GetMapping
     public String communityMain(Model model) {
+        getLatestPostList(model);
         return "/community/community_main";
     }
 
@@ -62,6 +82,8 @@ public class CommunityController {
         }
         return "/community/cComm";
     }
+
+
 
     public void notFoundPostMessage(Model model) {
         String notFoundPostMessage =

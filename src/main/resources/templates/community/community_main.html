@@ -10,29 +10,45 @@
         <div class="board-section">
             <a class="board-title" th:href="@{/community/java}">JAVA 커뮤니티</a>
             <div class="board-posts">
-                <a th:href="@{/community/java}">커뮤니티 게시글1</a>
-                <a th:href="@{/community/}">커뮤니티 게시글2</a>
-                <a th:href="@{/community}">커뮤니티 게시글3</a>
-                <a th:href="@{/community}">커뮤니티 게시글4</a>
+                <ul>
+                    <li th:if="${#lists.isEmpty(JAVALatestPostList)}">
+                        아무고토없음
+                    </li>
+                    <li th:each="post : ${JAVALatestPostList}">
+                        <a th:href="@{/}" th:text="${post.pSubject}">Post Title</a>
+                    </li>
+                </ul>
+<!--                <a th:href="@{/community/java}">커뮤니티 게시글1</a>-->
+<!--                <a th:href="@{/community/}">커뮤니티 게시글2</a>-->
+<!--                <a th:href="@{/community}">커뮤니티 게시글3</a>-->
+<!--                <a th:href="@{/community}">커뮤니티 게시글4</a>-->
             </div>
         </div>
 
         <div class="board-section">
             <a class="board-title" th:href="@{/community/c}">C 커뮤니티</a>
             <div class="board-posts">
-                <a th:href="@{/qna}">커뮤니티 게시글1</a>
-                <a th:href="@{/qna}">커뮤니티 게시글2</a>
-                <a th:href="@{/qna}">커뮤니티 게시글3</a>
-                <a th:href="@{/qna}">커뮤니티 게시글4</a>
+                <ul>
+                    <li th:if="${#lists.isEmpty(CLatestPostList)}">
+                        아무고토없음
+                    </li>
+                    <li th:each="post : ${CLatestPostList}">
+                        <a th:href="@{/}" th:text="${post.pSubject}">Post Title</a>
+                    </li>
+                </ul>
             </div>
         </div>
         <div class="board-section">
             <a class="board-title" th:href="@{/community/python}">Python 커뮤니티</a>
             <div class="board-posts">
-                <a th:href="@{/jobBoard}">커뮤니티 게시글1</a>
-                <a th:href="@{/jobBoard}">커뮤니티 게시글2</a>
-                <a th:href="@{/jobBoard}">커뮤니티 게시글3</a>
-                <a th:href="@{/jobBoard}">커뮤니티 게시글4</a>
+                <ul>
+                    <li th:if="${#lists.isEmpty(PYTHONLatestPostList)}">
+                        아무고토없음
+                    </li>
+                    <li th:each="post : ${PYTHONLatestPostList}">
+                        <a th:href="@{/}" th:text="${post.pSubject}">Post Title</a>
+                    </li>
+                </ul>
             </div>
         </div>
         <div class="board-section">

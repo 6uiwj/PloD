@@ -13,10 +13,18 @@
         <div class="board-section">
             <a class="board-title" id="community-board-title" th:href="@{/community}">커뮤니티</a>
                 <div class="board-posts">
-                    <a th:href="@{/community/java}">커뮤니티 게시글1</a>
-                    <a th:href="@{/community/}">커뮤니티 게시글2</a>
-                    <a th:href="@{/community}">커뮤니티 게시글3</a>
-                    <a th:href="@{/community}">커뮤니티 게시글4</a>
+                    <ul>
+                        <li th:if="${#lists.isEmpty(AllCommBoardLatestPostList)}">
+                            아무고토없음
+                        </li>
+                        <li th:each="post : ${AllCommBoardLatestPostList}">
+                            <a th:href="@{/}" th:text="${post.pSubject}">Post Title</a>
+                        </li>
+                    </ul>
+<!--                    <a th:href="@{/community/java}">커뮤니티 게시글1</a>-->
+<!--                    <a th:href="@{/community/}">커뮤니티 게시글2</a>-->
+<!--                    <a th:href="@{/community}">커뮤니티 게시글3</a>-->
+<!--                    <a th:href="@{/community}">커뮤니티 게시글4</a>-->
                 </div>
         </div>
 

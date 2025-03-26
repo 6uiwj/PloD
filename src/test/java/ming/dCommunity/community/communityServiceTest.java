@@ -2,10 +2,9 @@ package ming.dCommunity.community;
 
 import ming.dCommunity.community.board.entity.Board;
 import ming.dCommunity.community.board.repository.BoardRepository;
-import ming.dCommunity.community.controller.CommunityController;
+import ming.dCommunity.community.board.repository.PostRepository;
 import ming.dCommunity.community.entity.Community;
 import ming.dCommunity.community.repository.CommunityRepository;
-import ming.dCommunity.community.service.BoardService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -22,11 +21,9 @@ public class communityServiceTest {
     @Autowired
     BoardRepository boardRepository;
 
-    @Autowired
-    BoardService boardService;
 
     @Autowired
-    CommunityController communityController;
+    PostRepository postRepository;
 
     @Test
     void CreateCommunity() {
@@ -66,4 +63,13 @@ public class communityServiceTest {
             System.out.println(name);
         }
     }
-}
+
+    @Test
+    void GetLatestPostService() {
+//           List<Post> Top4PostList = this.postRepository.findTop4LatestPosts();
+//           for ( int i = 0; i<4; i++) {
+//               Top4PostList.get(i);
+//           }
+       }
+    }
+
