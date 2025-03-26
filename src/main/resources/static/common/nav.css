@@ -3,6 +3,7 @@
 nav {
     padding: 1rem 2rem;
     border-bottom: 2px solid #3ECFAF; /* 하단 민트색 라인 */
+    height:80px;
 }
 
 nav > div {
@@ -11,12 +12,13 @@ nav > div {
     align-items: center;
     max-width: 1200px;
     margin: 0 auto;
+    height: 60px;
 }
 
 /* 로고 스타일링 */
 nav a[href="/"] {
     color: #3ECFAF; /* 민트색 */
-    font-size: 1.5rem;
+    font-size: 2rem;
     font-weight: bold;
     text-decoration: none;
 }
@@ -27,8 +29,9 @@ nav a[href="/"] {
     text-decoration: none;
     padding: 0.5rem 1rem;
     margin: 0 0.5rem;
-    font-size: 1.3rem;
+    font-size: 1.7rem;
     transition: color 0.3s;
+    font-weight:500;
 }
 
 .main_nav-a:hover {
@@ -40,7 +43,7 @@ nav > div > div:last-child a {
     color: #666;
     text-decoration: none;
     padding: 0.5rem 1rem;
-    font-size: 0.9rem;
+    font-size: 1rem;
     transition: color 0.3s;
 }
 

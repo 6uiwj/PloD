@@ -1,20 +1,49 @@
 /* 메인 컨테이너 스타일링 */
+
+.top-info {
+}
 .site-description {
     background-color: #f0f5ff;
     padding: 2rem;
-    margin-bottom: 1rem;
+    margin: 1rem auto;
     border-radius: 10px;
     text-align: center;
+    font-size:1.5rem;
+    color: #3ecfaf;
+    width: 80%;
+    font-weight:500;
+
+}
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
+    100% { transform: translateX(0); }
+}
+
+.site-description:hover {
+    animation: shake 0.5s ease-in-out;
+      background: linear-gradient(45deg, #ff6b6b, #3ECFAF);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
 }
 
 .ad-banner {
     background-color: #fff4e6;
-    padding: 3rem;
-    /*margin: 2rem;*/
+    padding: 2rem;
+    margin: 1rem auto;
     border-radius: 10px;
     text-align: center;
-    font-size: 1.5rem;
+    font-size: 2.5rem;
     font-weight: bold;
+    width: 80%;
+    height: 100px;
+    display: flex;
+        align-items: center;  /* 세로 중앙 정렬 */
+        justify-content: center;  /* 가로 중앙 정렬 */
+    color: #e8af35;
+
 }
 
 /* 그리드 레이아웃 */
@@ -130,3 +159,4 @@ div[layout\:fragment="content"] > div:nth-child(3) {
 }
 
 /*====================밍디 코드 End =====================*/
+
