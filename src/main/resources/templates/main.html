@@ -5,17 +5,26 @@
     <meta charset="UTF-8">
 </head>
 <body>
-
-<div class="site-description">사이트 설명</div>
-<div class="ad-banner">광고배너</div>
+<div class="top-info">
+<div class="site-description">개발자들의 놀이터 Playground Of Developer 플로디</div>
+<div class="ad-banner">[AD]개발자로 취업하고 싶어? 밍냥 부트캠프로 와!^･⩊･^੭</div>
+</div>
     <div class="main-grid">
         <div class="board-section">
             <a class="board-title" id="community-board-title" th:href="@{/community}">커뮤니티</a>
                 <div class="board-posts">
-                    <a th:href="@{/community/java}">커뮤니티 게시글1</a>
-                    <a th:href="@{/community/}">커뮤니티 게시글2</a>
-                    <a th:href="@{/community}">커뮤니티 게시글3</a>
-                    <a th:href="@{/community}">커뮤니티 게시글4</a>
+                    <ul>
+                        <li th:if="${#lists.isEmpty(AllCommBoardLatestPostList)}">
+                            아무고토없음
+                        </li>
+                        <li th:each="post : ${AllCommBoardLatestPostList}">
+                            <a th:href="@{/}" th:text="${post.pSubject}">Post Title</a>
+                        </li>
+                    </ul>
+<!--                    <a th:href="@{/community/java}">커뮤니티 게시글1</a>-->
+<!--                    <a th:href="@{/community/}">커뮤니티 게시글2</a>-->
+<!--                    <a th:href="@{/community}">커뮤니티 게시글3</a>-->
+<!--                    <a th:href="@{/community}">커뮤니티 게시글4</a>-->
                 </div>
         </div>
 
@@ -47,6 +56,7 @@
              </div>
         </div>
     </div>
+
 </body>
 </div>
 </html>

@@ -1,0 +1,116 @@
+#community-board-box {
+    max-width:1300px;
+}
+
+
+/*  게시판 테이블 css 임시 */
+/* 테이블 전체 스타일 */
+table {
+    width: 90%;
+    border-collapse: collapse;
+     border-left: none;  /* 왼쪽 선 제거 */
+        border-right: none; /* 오른쪽 선 제거 */
+    margin: 27px auto; /* 가운데 정렬 */
+    font-size: 16px;
+    text-align: left;
+    background-color: #ffffff;
+    border-radius: 10px;
+    overflow: hidden;
+    /* box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1); */
+}
+
+/* 테이블 헤더 스타일 */
+thead {
+    background-color: #3ECFAF; /* 연한 초록 */
+    height:60px;
+
+}
+
+/* 테이블 헤더 셀 스타일 */
+thead th {
+    padding: 12px;
+    text-align: center;
+     border-left: none;  /* 왼쪽 선 제거 */
+        border-right: none; /* 오른쪽 선 제거 */
+}
+
+/* 테이블 본문 스타일 */
+tbody tr {
+    border-bottom: 1px solid #ddd; /* 행 구분선 */
+    height: 150px;
+
+}
+
+/* 테이블 본문 셀 스타일 */
+tbody td {
+    padding: 20px 10px 10px 10px;
+    text-align: center; /* 글자 가운데 정렬 */
+        flex-direction: column; /* 세로 정렬 */
+        justify-content: center; /* 상하 중앙 정렬 */
+    display:flex;
+     border-left: none;  /* 왼쪽 선 제거 */
+        border-right: none; /* 오른쪽 선 제거 */
+
+}
+
+/* 테이블 홀수 행 배경색 변경 */
+tbody tr:nth-child(odd) {
+    background-color: #F8F8F8;
+}
+
+/* 마우스 호버 효과 */
+tbody tr:hover {
+    background-color: #edfaf7;
+}
+
+/* 게시글이 없을 때 */
+td[colspan] {
+    text-align: center;
+    font-weight: bold;
+    color: #777;
+}
+
+
+/* 게시글 메타 정보 (작성자, 날짜) */
+.post-meta {
+    color: #777;
+    margin-bottom: 5px;
+    text-align: left;
+}
+
+/* 작성자 스타일 */
+.post-author {
+    font-weight: bold;
+    margin-right: 15px;
+        font-size: 18px;
+
+}
+
+/* 날짜 스타일 */
+.post-date {
+    font-size: 18px;
+    color: #999;
+}
+
+
+
+/* 게시글 제목 스타일 */
+.post-title {
+    display: flex;
+    align-items: center;  /* 세로 중앙 정렬 */
+    font-size: 32px;
+    font-weight: bold;
+    color: black;
+    height: 70px;
+    text-align: left;
+
+
+}
+
+.post-sub-info{
+    text-align: right;
+    color: #777;
+    margin: 5px;
+
+}
+

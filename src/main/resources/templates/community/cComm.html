@@ -2,15 +2,15 @@
 
 <body>
 <div layout:fragment="boardSkinFragment">
-<div>
-    C언어 커뮤니티당
-</div>
+<div class="table-container">
+    <div class="comm-title">
+        C언어 커뮤니티당
+    </div>
         <table>
             <thead>
             <tr>
-                <th>제목</th>
-                <th>작성일</th>
-                <th>작성자</th>
+                <th></th>
+
             </tr>
             </thead>
             <tbody>
@@ -18,12 +18,23 @@
                 <td colspan="3" th:text="#{NotFoundPost}"></td>
             </tr>
             <tr th:each = "post : ${CPostList}" th:unless="${#lists.isEmpty(CPostList)}">
-                <td th:text="${post.pSubject}"></td>
-                <td th:text="${post.pCreateDate}"></td>
-                <td th:text="${post.pAuthorNickname}"></td>
+                <td>
+                    <div class="post-meta">
+                        <span class="post-author" th:text="${post.pAuthorNickname}"></span>
+                        <span class="post-date" th:text="${post.pCreateDate}"></span>
+                    </div>
+                    <div class="post-title" th:text="${post.pSubject}"></div>
+                </td>
+                <td>
+                    <div class="post-sub-info">
+                        조회수 100 | 좋아요 120 | 댓글 5
+                    </div>
+                </td>
             </tr>
             </tbody>
         </table>
     </div>
-    </body>
+</div>
+
+</body>
 </html>
