@@ -6,6 +6,7 @@ import ming.dCommunity.community.board.entity.Board;
 import ming.dCommunity.community.board.entity.Post;
 import ming.dCommunity.community.board.repository.BoardRepository;
 import ming.dCommunity.community.board.repository.PostRepository;
+import ming.dCommunity.exception.DataNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -65,6 +66,20 @@ public class PostService {
         }
         return null;
 
+    }
+
+    /**
+     * 게시글 상세페이지 만들기 위해 단일게시글 조회
+     * @param id
+     * @return
+     */
+    public Post getPost(Integer id) {
+        Optional<Post> post = this.postRepository.findById(id);
+        if(post.isPresent()) {
+            return post.get();
+        } else {
+            throw new DataNotFoundException("post not found");
+        }
     }
 
 }

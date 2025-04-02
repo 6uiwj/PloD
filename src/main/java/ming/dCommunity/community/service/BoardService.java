@@ -1,6 +1,7 @@
 package ming.dCommunity.community.service;
 
 import lombok.RequiredArgsConstructor;
+import ming.dCommunity.community.board.dto.PostDto;
 import ming.dCommunity.community.board.entity.Board;
 import ming.dCommunity.community.board.entity.Post;
 import ming.dCommunity.community.board.repository.BoardRepository;
@@ -29,14 +30,14 @@ public class BoardService {
         return boardNameList;
     }
 
-    public List<Post> getAllBoardLatestPost() {
+    public List<PostDto> getAllBoardLatestPost() {
         List<Post> LatestPost = this.postRepository.findPostsOrderByCreateDateDesc();
         int loopLimit = Math.min(LatestPost.size(),4);
         List<Post> LatestPostTop4 = new ArrayList<>();
         for(int i = 0; i<loopLimit; i++) {
             LatestPostTop4.add(LatestPost.get(i));
         }
-        return LatestPostTop4;
+        return LatestPostTop4.stream().map(Post::toPostDto).toList();
     }
 
     /**
@@ -44,7 +45,7 @@ public class BoardService {
      * @param boardId
      * @return
      */
-    public List<Post> getLatestPost(Integer boardId) {
+    public List<PostDto> getLatestPost(Integer boardId) {
         //System.out.println("보드서비스 getLatestPost boardID 뭐에여" + boardId);
         List<Post> OrderedPost = this.postRepository.findPostsByBoardIdOrderByCreateDateDesc(boardId);
         List<Post> LatestPost = new ArrayList<>(); //최신게시글 4개만
@@ -53,7 +54,7 @@ public class BoardService {
             System.out.println(i);
             LatestPost.add(OrderedPost.get(i));
         }
-        return LatestPost; //최신게시글 4개 반환
+        return LatestPost.stream().map(Post::toPostDto).toList(); //최신게시글 4개 반환
     }
 
 
@@ -68,6 +69,11 @@ public class BoardService {
         return this.boardRepository.findAllBoardIds();
     }
 
+    /**
+     * 특정 게시판 이름 가져오기
+     * @param boardId
+     * @return
+     */
     public String getBoardName(Integer boardId) {
         return this.boardRepository.findAllBoardName(boardId);
     }

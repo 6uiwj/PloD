@@ -63,12 +63,14 @@ public class Post {
      */
     public PostDto toPostDto() {
         String nickname = pAuthor != null ? pAuthor.getNickname() : null;
+        String boardName = board.getCommBoardName() != null ? board.getCommBoardName() : null;
         return new PostDto(
                 this.getPId(),
                 this.getPSubject(),
                 this.getPContent(),
                 this.getPCreateDate(),
-                nickname // 작성자 닉네임만 전달 (pAuthorNickname자리에 nickname(UserInfo의 Nickname)대입)
+                nickname, // 작성자 닉네임만 전달 (pAuthorNickname자리에 nickname(UserInfo의 Nickname)대입)
+                boardName
         );
     }
 
