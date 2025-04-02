@@ -19,7 +19,9 @@
             <td colspan="3" th:text="#{NotFoundPost}"></td>
         </tr>
             <tr th:each = "post : ${JAVAPostList}" th:unless="${#lists.isEmpty(JAVAPostList)}">
-                <td th:text="${post.pSubject}"></td>
+                <td>
+                    <a th:href="@{|/board/${post.boardName}/detail/${post.pId}|}"
+                       th:text="${post.pSubject}"></a></td>
                 <td th:text="${post.pCreateDate}"></td>
                 <td th:text="${post.pAuthorNickname}"></td>
             </tr>

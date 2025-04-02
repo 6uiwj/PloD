@@ -14,7 +14,7 @@ public class PostDto {
     private String pContent;      // 게시글 내용
     private LocalDateTime pCreateDate;  // 작성일시
     private String pAuthorNickname;  // 작성자 닉네임만
-
+    private String boardName;
 
     /**
      * Constructor
@@ -24,12 +24,13 @@ public class PostDto {
      * @param pCreateDate
      * @param pAuthorNickname
      */
-    public PostDto(Integer pId, String pSubject, String pContent, LocalDateTime pCreateDate, String pAuthorNickname) {
+    public PostDto(Integer pId, String pSubject, String pContent, LocalDateTime pCreateDate, String pAuthorNickname, String boardName) {
         this.pId = pId;
         this.pSubject = pSubject;
         this.pContent = pContent;
         this.pCreateDate = pCreateDate;
         this.pAuthorNickname = pAuthorNickname;
+        this.boardName = boardName;
     }
 
 
