@@ -16,6 +16,9 @@ public interface BoardRepository extends JpaRepository<Board,Integer> {
     @Query("SELECT b.commBoardName FROM Board b WHERE b.cbId = :cbId")
     String findAllBoardName(@Param("cbId") Integer cbId);
 
+    @Query("SELECT b.cbId FROM Board b WHERE b.commBoardName = :commBoardName")
+    Integer findIdByCommBoardName(@Param("commBoardName") String commBoardName);
+
 
 
 }

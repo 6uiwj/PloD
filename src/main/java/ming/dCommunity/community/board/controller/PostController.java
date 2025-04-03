@@ -1,16 +1,14 @@
 package ming.dCommunity.community.board.controller;
 
 import lombok.RequiredArgsConstructor;
+import ming.dCommunity.community.board.dto.PostForm;
 import ming.dCommunity.community.board.entity.Post;
 import ming.dCommunity.community.board.service.PostService;
 import ming.dCommunity.community.service.BoardService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequiredArgsConstructor
@@ -50,22 +48,53 @@ public class PostController {
 
     }
 
-//    /**
-//     * 게시판ID로 게시판 이름 가져오기
-//     * @param boardId
-//     * @return
-//     */
-//    public String boardName(Integer boardId) {
-//        String boardName = "";
-//        if(boardId==1) {
-//            boardName = boardService.getBoardName(1);
-//        } else if (boardId==5) {
-//            boardName = boardService.getBoardName(5);
-//        } else if (boardId==6) {
-//            boardName = boardService.getBoardName(6);
-//        } else {
-//            return null;
-//        }
-//        return boardName;
-//    }
+    /**
+     * 게시글 작성 폼으로 이동
+     * @param boardName
+     * @return
+     */
+    @GetMapping("/{boardName}/write")
+    public String postWrite(@PathVariable("boardName") String boardName, Model model) {
+        model.addAttribute("postForm", new PostForm());
+        return "/community/post_write";
+    }
+
+
+    /**
+     * 게시글 작성 후 저장
+     * @param boardName
+     * @param subject
+     * @param content
+     * @return
+     */
+    @PostMapping("/{boardName}/write")
+    public String postWrite(@PathVariable("boardName") String boardName,
+                            @RequestParam(value="subject") String subject,
+                            @RequestParam(value="content") String content,
+                            @ModelAttribute PostForm postForm
+                            ) {
+        Integer boardId = this.boardService.getBoardIdByBoardName(boardName);
+        this.postService.savePost(subject,content, boardId);
+        return "redirect:/community/" + boardName.toLowerCase();
+    }
+
+
+    /**
+     * 게시판ID로 게시판 이름 가져오기
+     * @param boardId
+     * @return
+     */
+    public String boardName(Integer boardId) {
+        String boardName = "";
+        if(boardId==1) {
+            boardName = boardService.getBoardName(1);
+        } else if (boardId==5) {
+            boardName = boardService.getBoardName(5);
+        } else if (boardId==6) {
+            boardName = boardService.getBoardName(6);
+        } else {
+            return null;
+        }
+        return boardName;
+    }
 }

@@ -7,8 +7,11 @@ import ming.dCommunity.community.board.entity.Post;
 import ming.dCommunity.community.board.repository.BoardRepository;
 import ming.dCommunity.community.board.repository.PostRepository;
 import ming.dCommunity.exception.DataNotFoundException;
+import ming.dCommunity.user.controller.UserService;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -17,6 +20,7 @@ import java.util.Optional;
 public class PostService {
     private final PostRepository postRepository;
     private final BoardRepository boardRepository;
+    private final UserService userService;
 
 
     /**
@@ -36,7 +40,7 @@ public class PostService {
             Board board = boardTemp.get();
             //게시판별 게시글 조회 위해 게시판을 키워드로 검색해서 게시글을 목록 조회할 것임
             //ex) 자바커뮤니티의 게시물이면 -> post(게시글)들에 저장된 Board(게시판)정보를 이용해서 board = java 인 게시글들 검색
-            Optional<List<Post>> postListTemp = this.postRepository.findByBoard(board);
+            Optional<List<Post>> postListTemp = this.postRepository.findByBoard(board, Sort.by(Sort.Direction.DESC, "pCreateDate"));
 
             if (postListTemp.isPresent()) {
                 List<Post> postList = postListTemp.get();
@@ -80,6 +84,22 @@ public class PostService {
         } else {
             throw new DataNotFoundException("post not found");
         }
+    }
+
+    /**
+     * 커뮤니티 게시글 저장 서비스
+     * @param subject
+     * @param content
+     */
+    public void savePost(String subject, String content, Integer boardId) {
+        Post post = new Post();
+        post.setPSubject(subject);
+        post.setPContent(content);
+        //TODO 회원가입-로그인 서비스 개발 후 글 작성자 로직 바꾸기
+        post.setPAuthor(this.userService.getUser(1));
+        post.setPCreateDate(LocalDateTime.now());
+        post.setBoard(this.boardRepository.findById(boardId).get());
+        this.postRepository.save(post);
     }
 
 }

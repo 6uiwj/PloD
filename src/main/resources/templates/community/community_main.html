@@ -29,7 +29,7 @@
                         아무고토없음
                     </li>
                     <li th:each="post : ${CLatestPostList}">
-                        <a th:href="@{/}" th:text="${post.pSubject}">Post Title</a>
+                        <a th:href="@{|/board/${post.boardName}/detail/${post.pId}|}" th:text="${post.pSubject}">Post Title</a>
                     </li>
                 </ul>
             </div>
@@ -42,7 +42,7 @@
                         아무고토없음
                     </li>
                     <li th:each="post : ${PYTHONLatestPostList}">
-                        <a th:href="@{/}" th:text="${post.pSubject}">Post Title</a>
+                        <a th:href="@{|/board/${post.boardName}/detail/${post.pId}|}" th:text="${post.pSubject}">Post Title</a>
                     </li>
                 </ul>
             </div>
@@ -57,6 +57,7 @@
             </div>
         </div>
     </div>
+    <div>커뮤니티 가이드라인</div>
 </div>
 </body>
 

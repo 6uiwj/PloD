@@ -6,6 +6,9 @@
     <div class="comm-title">
         C언어 커뮤니티당
     </div>
+    <div>
+        <a th:href="@{|/board/C/write|}" class="btn">글쓰기</a>
+    </div>
         <table>
             <thead>
             <tr>
@@ -23,8 +26,10 @@
                         <span class="post-author" th:text="${post.pAuthorNickname}"></span>
                         <span class="post-date" th:text="${post.pCreateDate}"></span>
                     </div>
-                    <div class="post-title" th:text="${post.pSubject}"></div>
-                </td>
+                    <div class="post-title">
+                        <a th:href="@{|/board/${post.boardName}/detail/${post.pId}|}"
+                           th:text="${post.pSubject}"></a>
+                    </div>                </td>
                 <td>
                     <div class="post-sub-info">
                         조회수 100 | 좋아요 120 | 댓글 5
