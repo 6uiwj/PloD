@@ -30,7 +30,7 @@ public class CommunityController {
     }
 
     /**
-     * 게시판별 최신 게시글 가져오기
+     * 게시판별 최신 top4 게시글 가져오기
      * @param model
      */
     public void getLatestPostList(Model model) {

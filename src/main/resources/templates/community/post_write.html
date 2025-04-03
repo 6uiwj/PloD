@@ -1,0 +1,20 @@
+<html layout:decorate="~{/community/boardSkin}">
+
+<body>
+<div layout:fragment="boardSkinFragment">
+    <div class="post-container">
+    <form th:object="${postForm}" method="post" class="post-form">
+        <div>
+            <label for="subject" class="subject-label">제목</label>
+            <input type="text" th:field="*{subject}" class="subject-input">
+        </div>
+        <div>
+            <label for="content" class="content-label">내용</label>
+            <textarea th:field="*{content}" class="content-input"></textarea>
+        </div>
+        <input type="submit" value="게시하기" class="btn post-btn" >
+    </form>
+</div>
+</div>
+</body>
+</html>

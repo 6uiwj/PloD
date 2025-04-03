@@ -78,5 +78,8 @@ public class BoardService {
         return this.boardRepository.findAllBoardName(boardId);
     }
 
+    public Integer getBoardIdByBoardName(String boardName) {
+        return this.boardRepository.findIdByCommBoardName(boardName);
+    }
 
 }
